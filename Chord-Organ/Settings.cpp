@@ -69,17 +69,17 @@ void Settings::read() {
             if (character == ',') {
             	#ifdef DEBUG_CHORDS
                 Serial.print("Note ");
-                Serial.println(settingValue.toInt());
+                Serial.println(toFloat(settingValue));
                 #endif
-                notes[numChords][note] = settingValue.toInt();
+                notes[numChords][note] = toFloat(settingValue);
                 settingValue = "";   
                 note++;
             } else if(character == ']') {
             	#ifdef DEBUG_CHORDS
                 Serial.print("Note ");
-                Serial.println(settingValue.toInt());
+                Serial.println(toFloat(settingValue));
                 #endif
-                notes[numChords][note] = settingValue.toInt();
+                notes[numChords][note] = toFloat(settingValue);
                 settingValue = "";
                 numChords++;
                 note = 0;

@@ -431,10 +431,7 @@ void updateAmpAndFreq() {
     if(stacked) {
         for(int i=0;i < halfSinecount;i++) {
             if (chord[i] != 255) {
-                noteNumber = rootQuant + chord[i];
-                if(noteNumber < 0) noteNumber = 0;
-                if(noteNumber > 127) noteNumber = 127;
-                float newFreq = MIDI_TO_FREQ[noteNumber];
+                float newFreq = rootQuant*chord[i];
 
                 FREQ[i] = newFreq;
                 FREQ[i+halfSinecount] = newFreq * stackFreqScale;
@@ -451,10 +448,7 @@ void updateAmpAndFreq() {
     } else {
         for(int i = 0; i< SINECOUNT; i++){
             if (chord[i] != 255) {
-                noteNumber = rootQuant + chord[i];
-                if(noteNumber < 0) noteNumber = 0;
-                if(noteNumber > 127) noteNumber = 127;
-                float newFreq = MIDI_TO_FREQ[noteNumber];
+                float newFreq = rootQuant*chord[i];
 
                 // TODO : Allow option to choose between jump from current or new?
                 //deltaFrequency[i] = newFreq - FREQ[i];

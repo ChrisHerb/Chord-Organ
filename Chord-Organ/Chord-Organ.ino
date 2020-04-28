@@ -422,7 +422,7 @@ void loop(){
 }
 
 void updateAmpAndFreq() {
-    int16_t* chord = settings.notes[chordQuant];
+    float* chord = settings.notes[chordQuant];
 
     int noteNumber;
     int voiceCount = 0;
